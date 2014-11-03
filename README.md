@@ -1,6 +1,6 @@
 sbt-utc
 =======
-[![Build Status](https://travis-ci.org/youdevise/sbt-utc.svg?branch=master)](https://travis-ci.org/youdevise/sbt-utc)
+[![Build Status](https://travis-ci.org/tim-group/sbt-utc.svg?branch=master)](https://travis-ci.org/tim-group/sbt-utc)
 
 
 Summary
