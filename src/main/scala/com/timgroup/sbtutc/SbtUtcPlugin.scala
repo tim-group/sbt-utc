@@ -14,7 +14,10 @@ object SbtUtcPlugin extends Plugin {
     DateTimeZone.setDefault(DateTimeZone.UTC)
   }
 
-  override lazy val globalSettings = Seq(javaOptions += "-Duser.timezone=UTC")
+  override lazy val globalSettings = Seq(
+    javaOptions += "-Duser.timezone=UTC",
+    envVars ++= Map("TZ", "UTC")
+  )
 
   private def isPresent(className: String) = (scala.util.control.Exception.allCatch opt { Class.forName(className) }).isDefined
 }
