@@ -1,6 +1,5 @@
 import sbt._
 import Keys._
-
 object SbtUtcBuild extends Build with BuildExtra {
 
   lazy val lib_jodatime = Seq(
@@ -14,7 +13,7 @@ object SbtUtcBuild extends Build with BuildExtra {
       organization := "com.timgroup",
       name         := "sbt-utc",
       version      := "0.0." + System.getProperty("BUILD_NUMBER", "0-SNAPSHOT"),
-      sbtVersion   in Global := "0.13.6",
+      sbtVersion   in Global := "0.13.7",
       scalaVersion in Global := "2.10.4",
       libraryDependencies ++= lib_jodatime
     )
