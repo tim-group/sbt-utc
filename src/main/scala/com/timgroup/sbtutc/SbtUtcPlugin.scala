@@ -14,7 +14,7 @@ object SbtUtcPlugin extends Plugin {
     DateTimeZone.setDefault(DateTimeZone.UTC)
   }
 
-  overide lazy val projectSettings = globalSettings
+  override lazy val projectSettings = globalSettings
 
   override lazy val globalSettings = Seq(
     javaOptions += "-Duser.timezone=UTC",
