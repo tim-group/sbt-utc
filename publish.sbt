@@ -22,7 +22,7 @@ pomIncludeRepository := { _ => false }
 
 licenses := Seq("MIT License" -> url("http://www.opensource.org/licenses/mit-license.php"))
 
-homepage := Some(url("http://jsuereth.com/scala-arm"))
+homepage := Some(url("https://github.com/tim-group/sbt-utc"))
 
 pomExtra := (
   <scm>
