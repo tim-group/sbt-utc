@@ -5,16 +5,22 @@ import Keys._
 import java.util.TimeZone
 import org.joda.time.DateTimeZone
 
-object SbtUtcPlugin extends Plugin {
-  println("Setting Java TimeZone default to UTC")
-  System.setProperty("user.timezone", "UTC")
-  TimeZone.setDefault(TimeZone.getTimeZone("UTC"))
-  if (isPresent("org.joda.time.DateTimeZone")) {
-    println("Setting JodaTime DateTimeZone default to UTC")
-    DateTimeZone.setDefault(DateTimeZone.UTC)
-  }
+object SbtUtcPlugin extends AutoPlugin {
 
-  override lazy val projectSettings = globalSettings
+  override def trigger = allRequirements
+
+  override lazy val projectSettings = Seq(
+    initialize := {
+      val log = sLog.value
+      log.info("Setting Java TimeZone default to UTC")
+      System.setProperty("user.timezone", "UTC")
+      TimeZone.setDefault(TimeZone.getTimeZone("UTC"))
+
+      if (isPresent("org.joda.time.DateTimeZone")) {
+        log.info("Setting JodaTime DateTimeZone default to UTC")
+        DateTimeZone.setDefault(DateTimeZone.UTC)
+      }
+    }) ++ globalSettings
 
   override lazy val globalSettings = Seq(
     javaOptions += "-Duser.timezone=UTC",

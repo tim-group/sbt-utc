@@ -37,11 +37,3 @@ pomExtra := (
     </developer>
   </developers>
 )
-
-publishTo <<= version { v: String =>
-  val nexus = "https://oss.sonatype.org/"
-  if (v.trim.endsWith("SNAPSHOT"))
-    Some(Opts.resolver.sonatypeSnapshots)
-  else
-    Some(Opts.resolver.sonatypeStaging)
-}
